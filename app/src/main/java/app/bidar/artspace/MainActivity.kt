@@ -64,7 +64,7 @@ fun ArtSpaceApp() {
                 ) {
                     Image(
 
-                        painter = painterResource(id = R.drawable.takhte_jamshid),
+                        painter = painterResource(id = R.drawable.tagh_bostan_2),
                         contentDescription = null,
                         modifier = Modifier
                             .padding(16.dp)
