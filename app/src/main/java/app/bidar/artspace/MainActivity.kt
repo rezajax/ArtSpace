@@ -10,18 +10,11 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.Alignment.Companion.Bottom
-import androidx.compose.ui.Alignment.Companion.CenterHorizontally
-import androidx.compose.ui.Alignment.Companion.CenterVertically
-import androidx.compose.ui.Alignment.Companion.End
-import androidx.compose.ui.Alignment.Companion.Start
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Device
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -37,7 +30,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    ArtSpacePreview()
+                    ArtSpaceApp()
                 }
             }
         }
@@ -46,29 +39,30 @@ class MainActivity : ComponentActivity() {
 
 
 
+
 @Composable
 fun ArtSpaceApp() {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Top,
-        horizontalAlignment = CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally
 
     ) {
         Spacer(modifier = Modifier.weight(1f))
 
         Card(
-            modifier = Modifier
+            modifier = Modifier//.fillMaxWidth(.5f).fillMaxHeight(.5f)
                 .padding(16.dp)
-                .shadow(20.dp)
+                .shadow(1.dp)
                 .border(BorderStroke(3.dp, Color(R.color.border)))
-                //.height(600.dp)
+            //.height(600.dp)
         ) {
             Image(
-                painter = painterResource(id = R.drawable.tagh_bostan_2),
+
+                painter = painterResource(id = R.drawable.takhte_jamshid),
                 contentDescription = null,
                 modifier = Modifier
                     .padding(16.dp)
-
 
             )
         }
@@ -77,11 +71,12 @@ fun ArtSpaceApp() {
 
         Card(modifier = Modifier
             .padding(16.dp)
-            .shadow(clip = true, elevation = 10.dp)
+            .shadow(clip = true, elevation = 2.dp)
         ) {
             Column(
                 modifier = Modifier
-                .padding(16.dp)
+                    .padding(16.dp)
+                   // .fillMaxWidth(.5f).fillMaxHeight(.5f)
             ) {
                 Text(
                     modifier = Modifier
@@ -89,7 +84,7 @@ fun ArtSpaceApp() {
                     text = "Tagh Bostan",
                     fontSize = 25.sp,
 
-                )
+                    )
                 Row() {
                     Text(
                         modifier = Modifier
@@ -103,7 +98,7 @@ fun ArtSpaceApp() {
 
                         text = "(1991)",
 
-                    )
+                        )
                 }
 
             }
@@ -112,10 +107,11 @@ fun ArtSpaceApp() {
 
 
         Row(
-            modifier = Modifier.padding(16.dp)
+            modifier = Modifier
+                .padding(16.dp)
                 .fillMaxWidth()
-                .align(alignment = End)
-                .align(CenterHorizontally)
+                .align(alignment = Alignment.End)
+                .align(Alignment.CenterHorizontally)
         ) {
 
             Button(onClick = { /*TODO*/ }, modifier = Modifier.padding(16.dp)) {
@@ -137,14 +133,18 @@ fun ArtSpaceApp() {
 }
 
 
-@Preview(showBackground = true)
+@Preview(name = "With background", showBackground = true)
 @Preview(name= "dark")
 
 @Preview(showSystemUi = true)
-@Preview(showBackground = true, name= "tablet", heightDp = 1600, widthDp = 2560)
+@Preview(showBackground = true, name= "tablet 10", heightDp = 1600, widthDp = 2560)
+
+@Preview(showBackground = true, name= "tablet 7", heightDp = 1200, widthDp = 1920)
+@Preview(showBackground = true, name= "tablet 3", heightDp = 600, widthDp = 900)
 @Composable
 fun ArtSpacePreview() {
     ArtSpaceTheme {
         ArtSpaceApp()
     }
 }
+
