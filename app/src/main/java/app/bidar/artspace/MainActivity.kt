@@ -21,6 +21,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Device
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -49,10 +50,12 @@ class MainActivity : ComponentActivity() {
 fun ArtSpaceApp() {
     Column(
         modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
+        verticalArrangement = Arrangement.Top,
         horizontalAlignment = CenterHorizontally
 
     ) {
+        Spacer(modifier = Modifier.weight(1f))
+
         Card(
             modifier = Modifier
                 .padding(16.dp)
@@ -69,6 +72,8 @@ fun ArtSpaceApp() {
 
             )
         }
+
+        Spacer(modifier = Modifier.weight(1f))
 
         Card(modifier = Modifier
             .padding(16.dp)
@@ -117,6 +122,7 @@ fun ArtSpaceApp() {
                 Text(text = "Previous")
             }
 
+            Spacer(modifier = Modifier.weight(1f))
 
             Button(onClick = { /*TODO*/ }, modifier = Modifier.padding(16.dp)) {
                 Text(text = "Next")
@@ -131,8 +137,11 @@ fun ArtSpaceApp() {
 }
 
 
-
 @Preview(showBackground = true)
+@Preview(name= "dark")
+
+@Preview(showSystemUi = true)
+@Preview(showBackground = true, name= "tablet", heightDp = 1600, widthDp = 2560)
 @Composable
 fun ArtSpacePreview() {
     ArtSpaceTheme {
