@@ -8,12 +8,13 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -45,6 +46,22 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun ArtSpaceApp() {
 
+    var rem by remember { mutableStateOf(0)}
+
+    var title = stringResource(id = R.string.tagh)
+    var desc = stringResource(id = R.string.ker)
+    var date = stringResource(id = R.string.dateOfKer)
+    var img = painterResource(id = R.drawable.tagh_bostan_2)
+
+    if (rem == 1) {
+        title = stringResource(id = R.string.jamshid)
+        desc = stringResource(id = R.string.fars)
+        date = stringResource(id = R.string.dateOfFars)
+        img = painterResource(id = R.drawable.takhte_jamshid)
+        
+    }
+
+
     BoxWithConstraints {
         if (maxWidth < 600.dp) {
             Column(
@@ -64,7 +81,7 @@ fun ArtSpaceApp() {
                 ) {
                     Image(
 
-                        painter = painterResource(id = R.drawable.tagh_bostan_2),
+                        painter = img,
                         contentDescription = null,
                         modifier = Modifier
                             .padding(16.dp)
@@ -87,7 +104,7 @@ fun ArtSpaceApp() {
                         Text(
                             modifier = Modifier
                                 .padding(0.dp),
-                            text = "Tagh Bostan",
+                            text = title,
                             fontSize = 25.sp,
 
                             )
@@ -95,14 +112,14 @@ fun ArtSpaceApp() {
                             Text(
                                 modifier = Modifier
                                     .padding(0.dp),
-                                text = "Kermanshah ",
+                                text = desc,
                                 fontWeight = FontWeight.Bold
                             )
                             Text(
                                 modifier = Modifier
                                     .padding(0.dp),
 
-                                text = "(1991)",
+                                text = date,
 
                                 )
                         }
@@ -120,13 +137,13 @@ fun ArtSpaceApp() {
                         .align(Alignment.CenterHorizontally)
                 ) {
 
-                    Button(onClick = { /*TODO*/ }, modifier = Modifier.padding(16.dp)) {
+                    Button(onClick = { rem = 0 }, modifier = Modifier.padding(16.dp)) {
                         Text(text = "Previous")
                     }
 
                     Spacer(modifier = Modifier.weight(1f))
 
-                    Button(onClick = { /*TODO*/ }, modifier = Modifier.padding(16.dp)) {
+                    Button(onClick = { rem = 1 }, modifier = Modifier.padding(16.dp)) {
                         Text(text = "Next")
                     }
 
@@ -137,6 +154,8 @@ fun ArtSpaceApp() {
             }
         }
 
+
+        // large screan
         if (maxWidth >= 600.dp) {
             Column(
                 modifier = Modifier.fillMaxSize(),

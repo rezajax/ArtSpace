@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Art Space</string>
+    <string name="tagh">Tagh Bostan</string>
+    <string name="ker">\"Kermanshah \"</string>
+    <string name="dateOfKer">(1991)</string>
+
+
+    <string name="jamshid">takhte jamshid</string>
+    <string name="fars">Fars </string>
+    <string name="dateOfFars">518</string>
 </resources>
