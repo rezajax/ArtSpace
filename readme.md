@@ -15,4 +15,4 @@ TipTime is a sample Calculation of Art Space app, built with
 
  ## Screenshots
 
-<img src="pic/Screenshot_20220518_155815.png" alt="Screenshot" width="200">
+<img src="screenshot/artspace.png" alt="Screenshot" width="200">
