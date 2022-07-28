@@ -4,7 +4,7 @@
 
 
 
-[![Less Than Jake — Scott Farcas Takes It On The Chin](/pic/Screenshot_20220518_155815.png)](https://www.youtube.com/watch?v=PYCxct2e0zI)
+<!-- [![Less Than Jake — Scott Farcas Takes It On The Chin](/pic/Screenshot_20220518_155815.png)](https://www.youtube.com/watch?v=PYCxct2e0zI)
  -->
  
  
